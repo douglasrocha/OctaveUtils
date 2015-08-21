@@ -16,14 +16,12 @@
 
 function retval = getArrayOfPrimes(limit)
 	a = 1:limit;
-	b = a .* arrayfun(@isprime, a);
-	c = (b(1,:)!=0);
-	retval = a(:,c);
+	b = arrayfun(@isprime, a);
+	retval = a(:,b);
 endfunction
 
 function retval = getArrayOfUniquePrimesOfMatrix(mat)
 	a = unique(sort(mat(:)'));
-	b = a .* arrayfun(@isprime, a);
-	c = (b(1,:)!=0);
-	retval = a(:,c);
+	b = arrayfun(@isprime, a);
+	retval = a(:,b);
 endfunction
